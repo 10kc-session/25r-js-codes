@@ -1,0 +1,118 @@
+Create a Responsive Background Color Change: Write CSS to change the background color of the body:
+Light blue for screens smaller than 600px. Light green for screens between 600px and 1024px. Light gray for screens larger than 1024px.
+
+<body> </body>
+
+body{
+	background : lightgray;
+}
+/* max-width : 600px -> width <= 600px*/
+
+@media screen and (max-width : 600px){
+	body{
+		background : lightblue;
+	}
+}
+@media screen and (width >= 600px) and (width <= 1024px){
+	body{
+		background : lightgreen;
+	}
+}
+
+
+
+
+
+Apply Different Font Sizes Based on Screen Width: Use media queries to adjust the font size of an h1 tag:
+Set the font size to 18px for screens smaller than 500px. Set the font size to 24px for screens between 500px and 800px. Set the font size to 32px for screens larger than 800px.
+
+
+<h1> Hello World </h1>
+@media screen and (width < 500px)
+{
+	h1{
+		font-size : 18px;
+	}
+}
+@media screen and (width >= 500px) and (width <= 800px)
+{
+	h1{
+		font-size : 24px;
+	}
+}
+
+Change Layout Based on Device Orientation: Using media queries, create a layout where:
+The background color of a div is red in portrait orientation. The background color of the same div is blue in landscape orientation.
+
+<div></div>
+
+div{
+	background : blue;
+	width : 500px;
+ 	height : 500px;
+}
+@media screen and (orientation : portrait){
+	div{
+		background : red;
+	}
+}
+
+Responsive Image Size: Make an image adjust its size based on the screen width:
+Set the image to be 100% of the width of its container on screens smaller than 768px. Set the image to be 50% of the container width for screens larger than 768px
+
+
+<div class = "container" > 
+	<img src = "./Cat.jpg"> 
+</div>
+
+img{
+		width : 100%;
+}
+
+
+@media screen and (width > 768px)
+{
+	img{
+		width : 50%;
+	}
+}
+
+Responsive Navigation Menu: Write CSS using media queries to create a navigation menu that:
+Displays the menu items in a single column on screens smaller than 600px. Displays the menu items in a horizontal row on screens wider than 600px.
+
+<span> </span>
+<span> </span>
+<span> </span>
+<span> </span>
+
+span{
+	display : inline-block;
+	width : 200px;
+	height : 200px;
+	border : 2px solid;
+}
+
+@media screen and (width < 600px)
+{
+	span {
+		display : block;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

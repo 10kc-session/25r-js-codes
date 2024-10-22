@@ -1,0 +1,157 @@
+Website Links
+-------------
+https://fonts.google.com/
+https://www.svgrepo.com/
+https://icons.getbootstrap.com/
+https://ionic.io/ionicons/
+
+Task Links
+----------
+1. Id Card
+2. https://www.w3schools.com/w3css/tryw3css_templates_food_blog.htm
+3. https://www.w3schools.com/w3css/tryw3css_templates_architect.htm
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Template using Box Model</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <span class="icon">
+            <ion-icon name="menu-outline"></ion-icon>
+        </span>
+        <span class="food">
+            My Food
+        </span>
+        <span class="mail">
+            Mail
+        </span>
+    </header>
+    <main>
+        <section>
+            <img src="https://www.w3schools.com/w3images/sandwich.jpg" alt="1stImage">
+            <div>
+                <h3>The Perfect Sandwich, A Real NYC Classic</h3>
+                <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </section>
+        <section>
+            <img src="https://www.w3schools.com/w3images/steak.jpg" alt="2nd Image">
+            <div>
+                <h3>Let Me Tell You About This Steak</h3>
+                <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.
+                </p>
+            </div>
+        </section>
+        <section>
+            <img src="https://www.w3schools.com/w3images/cherries.jpg" alt="3rd Image">
+            <div>
+                <h3>Cherries, interrupted</h3>
+                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.
+                    What else?</p>
+            </div>
+        </section>
+        <section>
+            <img src="https://www.w3schools.com/w3images/wine.jpg" alt="4th Image">
+            <div>
+                <h3>Once Again, Robust Wine and Vegetable Pasta</h3>
+                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </section>
+        <section>
+            <img src="https://www.w3schools.com/w3images/sandwich.jpg" alt="1stImage">
+            <div>
+                <h3>The Perfect Sandwich, A Real NYC Classic</h3>
+                <p>Just some random text, lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </section>
+        <section>
+            <img src="https://www.w3schools.com/w3images/steak.jpg" alt="2nd Image">
+            <div>
+                <h3>Let Me Tell You About This Steak</h3>
+                <p>Once again, some random text to lorem lorem lorem lorem ipsum text praesent tincidunt ipsum lipsum.
+                </p>
+            </div>
+        </section>
+        <section>
+            <img src="https://www.w3schools.com/w3images/cherries.jpg" alt="3rd Image">
+            <div>
+                <h3>Cherries, interrupted</h3>
+                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.
+                    What else?</p>
+            </div>
+        </section>
+        <section>
+            <img src="https://www.w3schools.com/w3images/wine.jpg" alt="4th Image">
+            <div>
+                <h3>Once Again, Robust Wine and Vegetable Pasta</h3>
+                <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
+            </div>
+        </section>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+
+* {
+    font-family: "Karma", serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+section {
+    display: inline-block;
+    width: 300px;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+img {
+    width: 100%;
+}
+
+header {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 90px;
+    margin-top: 20px;
+}
+
+.food,
+.mail {
+    margin-left: 600px;
+}
+
+main {
+    margin: 0px 125px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 8px 0px;
+    text-align-last: center;
+    text-align: justify;
+}
+
+p {
+    font-size: 18px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+div {
+    padding: 10px;
+}

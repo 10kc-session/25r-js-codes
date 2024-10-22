@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgray;
+}
+
+@media screen and (width < 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+
+@media screen and (width >=600px) and (width <=1024px) {
+    body {
+        background-color: lightgreen;
+    }
+}
