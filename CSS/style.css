@@ -4,32 +4,28 @@
     box-sizing: border-box;
 }
 
-.main-container {
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-}
-
-.container {
-    text-align: center;
-    flex-basis: 100%;
-    margin: 4px;
+img {
+    width: 100%;
 }
 
 .text {
-    padding: 10px;
-    margin: 10px;
+    text-align: center;
 }
 
-img {
-    width: 100%;
-    display: block;
+.main-container {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.container {
+    flex-basis: 100%;
 }
 
 @media screen and (min-width : 600px) {
     .container {
-        flex: 1 1 18%;
+        flex-shrink: 1;
+        flex-grow: 1;
+        flex-basis: 22%;
     }
 }
