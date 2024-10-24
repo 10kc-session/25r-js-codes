@@ -4,28 +4,39 @@
     box-sizing: border-box;
 }
 
-img {
-    width: 100%;
+nav a {
+    text-decoration: none;
+    color: #000;
 }
 
-.text {
-    text-align: center;
-}
-
-.main-container {
+header {
     display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
+    padding: 14px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    background-color: #eee;
 }
 
-.container {
-    flex-basis: 100%;
+span {
+    font-size: 2rem;
 }
 
-@media screen and (min-width : 600px) {
-    .container {
-        flex-shrink: 1;
-        flex-grow: 1;
-        flex-basis: 22%;
+.icon {
+    font-size: 2rem;
+    display: none;
+}
+
+nav {
+    display: contents;
+}
+
+@media screen and (max-width : 550px) {
+    nav {
+        display: none;
+    }
+
+    .icon {
+        display: inline-block;
     }
 }
