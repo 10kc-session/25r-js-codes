@@ -31,6 +31,10 @@ nav {
     display: contents;
 }
 
+#checkbox {
+    display: none;
+}
+
 @media screen and (max-width : 550px) {
     nav {
         display: none;
@@ -38,5 +42,18 @@ nav {
 
     .icon {
         display: inline-block;
+    }
+
+    #checkbox:checked+nav {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        top: 65px;
+        left: 0;
+        align-items: center;
+        font-size: 1.8rem;
+        background-color: #eee;
+        gap: 20px;
+        width: 100%;
     }
 }
