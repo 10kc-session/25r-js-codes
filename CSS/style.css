@@ -1,59 +1,47 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --primary-color: #76C86E;
+    --secondary-color: #FFFFFE;
+    --accent-color: #D6D6C3;
 }
 
-nav a {
-    text-decoration: none;
-    color: #000;
+.first-line::first-line {
+    color: var(--primary-color);
+    font-style: italic;
 }
 
-header {
-    display: flex;
-    padding: 14px;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.8rem;
-    background-color: #eee;
+p {
+    text-align: justify;
 }
 
-span {
+.first-letter::first-letter {
     font-size: 2rem;
+    color: red;
 }
 
-.icon {
+
+p::selection {
+    background-color: aqua;
+}
+
+input::placeholder {
+    text-align: center;
+    color: var(--accent-color);
+}
+
+input {
     font-size: 2rem;
-    display: none;
+
 }
 
-nav {
-    display: contents;
+li::marker {
+    content: '→ ';
+    font-size: 1.5rem;
 }
 
-#checkbox {
-    display: none;
+.after::after {
+    content: ' ♥ Love';
 }
 
-@media screen and (max-width : 550px) {
-    nav {
-        display: none;
-    }
-
-    .icon {
-        display: inline-block;
-    }
-
-    #checkbox:checked+nav {
-        display: flex;
-        position: absolute;
-        flex-direction: column;
-        top: 65px;
-        left: 0;
-        align-items: center;
-        font-size: 1.8rem;
-        background-color: #eee;
-        gap: 20px;
-        width: 100%;
-    }
+.before::before {
+    content: '→ ';
 }
