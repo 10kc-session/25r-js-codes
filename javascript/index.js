@@ -1,118 +1,86 @@
 /**
- *  how to insert js into html
- *  variables
- *         keywords , identifiers
- *  var / let / const / automatic
- *  datatypes    
- *      primitive and non primitive
- *      1. Number , String , Boolean , undefined , Null , Symbol
- *      2. Object , Arrays , Function , Classs , set and Map , RegExp
- * 
- *  OOPS
- *  ----
- *  Object Oriented Programming Structure 
- *  1. Reusability  2. Modularity  3. Security
- *  
- *  Features of OOPS
- * ------------------
- *  1. Class
- *  2. Object
- *  3. Encapsulation
- *  4. Inheritance
- *  5. Polymorphism
- *  6. Abstraction
- * 
- *      Class defines creation of Object and Class is the collection of
- *      properties and methods 
- *      properties and methods can be static or non static 
- *          Syn : 
- *                  class ClassName{
- *                      
- *                  }
- *      Object 
- *      ------
- *          Object Defines state and behaviour of a class
- *          Object holds only non static properties and methods
- *             to create object
- *              Syn : 
- *                      variable referenceVariable = new ClassName();
+ *  String 
+ *  ------
+ *      The Set of Characters Combined together to form a text is known as string
+ *      Strings are represented in three ways 
+ *          1. ''  (Single Quote)
+ *          2. ""  (Double Quote)
+ *          3. ``  (Backticks) / Template Literals
+ *      How Many Ways to create String ? 
+ *          1. '' , 2. "" 3. `` 4. new String();
+*       https://devdocs.io/javascript/
  */
-// class Mobile {
-//     powerButton;
-//     camera;
-//     volumeButton;
 
-//     constructor(powerButton, camera, volumeButton) {
-//         this.powerButton = powerButton;
-//         this.camera = camera;
-//         this.volumeButton = volumeButton;
-//     }
-// }
-// var apple = new Mobile("Metal", "48mp", "Metal");
-// var realme = new Mobile("plastic", "200mp", "plastic");
-// var oppo = new Mobile("Plastic", "108Mp", "Plastic");
-// console.log(apple);
-// console.log(realme);
-// console.log(oppo);
+// String literal
+var str1 = 'Hello World';
+// console.log(str1);
 
-/**
- * Create a class Car , which is having properties of 
- *  engine , power , enginecc , color , brand and 
- *  initilize the data using constructor 
- *  and create the object 
- */
-class Car {
-    engine;
-    power;
-    enginecc;
-    colour;
-    brand;
-    constructor(engine, power, enginecc, colour, brand) {
-        this.engine = engine;
-        this.power = power;
-        this.enginecc = enginecc;
-        this.colour = colour;
-        this.brand = brand;
-    }
-    /**
-     * Non static Methods , 
-     *        The Methods which are called with 
-     *        object reference are knows as non static methods/ 
-     * 
-     *        non static methods are invoked using object reference
-     */
-    start(key) {
-        console.log(key, this.brand, "Engine Started");
-    }
-    accelaration(speed) {
-        console.log(speed, "Thokkali");
-    }
-    brake() {
-        console.log("Appiled Brakes");
-    }
-    stop() {
-        console.log("Engine Stopped", this.brand);
-    }
-}
-// thar -> objectReference
-var thar = new Car("Petrol", "350bhp", "2000cc", "red", "Mahindra");
-thar.start("Key is available");
-thar.accelaration("100 speed");
-thar.brake();
-thar.stop();
+var str2 = "Hello World";
+// console.log(str2);
+
+var str3 = `Hello World`;
+// console.log(str3);
+
+// Dynamic Creation
+var str4 = new String("Hello World");
+// console.log(str4);
+
+var str5 = "Hello";
+var str6 = "There";
+
+var str7 = str5 + ' ' + str6;
+// Hello There 
+// console.log(str7);
+
+var str8 = "Srinu";
+var str9 = "Chicken";
+var str10 = "Thumbsup";
+
+// Srinu has ate chicken with combination of Thumbsup
+
+var str11 = str8 + " has ate " + str9 + " with combination of " + str10;
+// console.log(str11);
+
+// I am srinu from hyderabad , i stay in hostel and on sundays in my hostel
+// chicken is available and i purchase thumbsup for kick
+
+var str12 = 'I am ' + str8 + " from hyderabad , i stay in hostel and on sundays in my hostel "
+    + str9 + " is available and i purchase " + str10 + " for kick";
+// console.log(str12);
+
+// '' "" ``
+
+var str13 = `I am ${str8} from hyderabad , i stay in hostel and on sundays in my hostel ${str9} is available and i purchase ${str10} for kick`;
+// console.log(str13);
+
+var a = 10;
+var b = 20;
+var c = a + b;
+// The Sum of a and b is 30
+// console.log("The sum of a + b is", c);
+// console.log("The sum of a + b is", a + b);
+// console.log("The sum of a + b is " + c);
+// console.log("The sum of a + b is " + a + b);
+// console.log("The Sum of a + b is " + (a + b));
+// console.log(`The Sum of a + b is ${a + b}`);
 
 
 
+// console.log(2 + 2);   // 4
+// console.log(2 + "2");   // 22
+// console.log("100" - 2);  // 98
+// console.log("2" + 4);    // 24
+// console.log("2" + true);  // 2true
+// console.log("false" + true); // falsetrue
+// console.log(2 / "2");         // 1
+// console.log("2" + 2 + "10" + (100 + 30));  // 2210130
+// console.log("10 " + 10);   // 1010
+// console.log("2" * 2);             // error , 22 , 4 , 2
+// console.log("10" / -2);        // -5 , error 
+console.log("10" + 100 + +"100");  // error 10100100  100100 10100 10100 100 110100 10200
+console.log(10 + +"2" + 100);  // 102100
+console.log(10 + +"100" * 2);  // 20200 10200 
+console.log(typeof +"100");   // string ,  error , typeof100
+console.log(100 + + "100");
 
-// console.log("---------------------------------------------")
 
-// // audi -> Object Reference
-// var audi = new Car("Diesel", "650hp", "2000cc", "Pink", "Audi");
-// audi.start();
-// audi.accelaration();
-// audi.brake();
-// audi.accelaration();
-// audi.stop();
-
-// // nano -> Object Reference
-// var nano = new Car("Diesel", "200bhp", "1000cc", "Pink", "Tata");
