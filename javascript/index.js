@@ -1,134 +1,66 @@
 /**
- * Strings
- * -------
- *       '' , "" , `` , new String();
- *   class X {
- *      start(newTitle){
-            this.title = newTitle;
- *      }
- *   }
- *      var ref = new X();
- *      ref.start();
- *      var str = 'Hello Wol'     
- *      var str = new String("Hello World");
- * 
- *  What is Method ?
- *  -----------------
- *       Javascript Builtin - Methods
- *       -----------------------------
- *          The Methods are used to manipulate the object data.
- *          The Methods are stored in properties of Object to perform
- *          operations on same object
- *              Ex : 
- *                      var obj = {
- *                              "name" : "Rahul",
- *                              "print" : function(){
- *                                  console.log(this.name);
- *                              }
- *                      }
- *       There are two types of javascript in-built in methods 
- *          1. non static methods
- *                  The methods which are invoked by reference or literal are known 
- *                  as non static methods
- *                  Ex : 
- *                          var str = "Hello World"; // Literal
- *                          console.log(str.toUpperCase());
- *                          
- *                          var str = new String("Hello World"); // Dynamic in Nature
- *                          console.log(str.toLowerCase()); 
- *          2. static methods
- *                  The Methods which are invoked by class name are known as static
- *                  methods
- *                      Ex : 
- *                              console.log(Array.from("123"));
+ *  What is Array ?
+ *  How to Access Elements from Array ?
+ *  Why Index starts from 0 ?
+ *  how to apply styles for console
+ *  
+ *      for loop
  */
-// declaration + assignment
-var a; // dec
-var str = "Hello World"; // initil
-// str.replace(target , newValue);
-console.log(str.replace("Hello", "HELLO"));
-
-str = "Hello World Hello World Hello World";
-console.log(str.replace("World", "There"));
-console.log(str.replaceAll("World", "There"));
-console.log(str);
-
-console.log(str[0]);
-console.log(str.length);
-console.log(str[str.length - 1]);
-console.log(str[-1]);
-
-console.log(str.at(-1));
-console.log(str.at(5));
-console.log(str.at(-4));
-console.log(str.charAt(5));
+// + - / * 
+console.log(10 + 10);
+console.log(20 + 30);
+console.log(20 < 30); // True
+console.log(20 >= 20); // True
+console.log(20 <= 30); // True
+console.log(20 == 20); // True (only checks the data)
+console.log(20 === 20); //  True    (checks the data and as well as type of data)
+console.log(20 == '20'); // False , true
+console.log(20 === '20'); // True  , False
 console.clear();
 
-console.log(str.charAt(20));
-console.log(str.charAt(45));
-console.log(str.charAt(-4));
-console.log(str.at(30));
+var a = 10;
+var b = '10';
+console.log(a >= b); // f , t a > b , a == b
+console.log(a == b); // f , t
+console.log(a <= b); // f  , t a < b , a == b
+console.log(a > b);  // F
+console.log(a < b);  // f
+console.log(b > a);  // f
+console.log(b >= a);  //  f , t b > a  b == a
+console.log(b === a); // f  
+console.log(b == a);  // t
+console.clear();
+
+var a = 10;
+a = a + 1; // re assingment
+
+console.log(a); // 11
+
+a = a + 10;
+console.log(a);
+
+a += 10;
+console.log(a);
 
 console.clear();
 
-// https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html
+/**
+ *   increment and decrement
+ *   ------------------------
+ *      post increment 
+ *          suffix
+ *      pre  increment
+ *          prefix
+ *      post decrement
+ *          suffix
+ *      pre decrement
+ *          prefix
+ *      ++ , --
+ *      var a = 10;
+ *      a++; 10++
+ */
+var x = 32; // 31
+var y = 12;  //  10
 
-console.log(str.charCodeAt(14));
-
-// Javascrip
-console.clear();
-
-// console.log(str.slice(starting , ending));
-// console.log(str.slice(-4 , -1));
-// console.log(str.slice(4 , -5));
-// console.log(str.slice(0 , -12));
-// console.log(str.slice(4));
-// console.log(str.slice(4, 10));
-// console.log(str.slice(0,10));
-// Java is Awesome
-// console.log(str.slice(0,4) + str.slice(10));
-// console.log(str.slice(-2));
-// console.log(str.slice(-7));
-
-// console.log(str.substring());
-// console.log(str.substring(4));
-// console.log(str.substring(4, 4));
-// console.log(str.substring(-1));
-// console.log(str.substring(-4));
-// console.log(str.substring(-6 , 5));
-// console.log(str.substring(5, 0));
-// console.log(str.substring(5 , -1));
-
-// console.log(str.substr());
-// console.log(str.substr(4 , 11));
-// console.log(str.substring(4));
-// console.log(str.slice(4));
-// console.log(str.substr(-1, 10));
-
-
-console.log(str.toUpperCase());
-// console.log(str.toLowerCase());
-
-console.log(str.split());
-console.log(str.split(" "));
-console.log(str.split(""));
-console.log(str.split("a"));
-console.log(str.split("", 5));
-console.log(str.split(" ", 1));
-console.clear();
-
-str = "javascript is awesome";
-// Javascript Is Awesome
-
-console.log(str.at(0).toUpperCase()
-    + str.slice(1, 11)
-    + str.at(11).toUpperCase()
-    + str.slice(12, 14)
-    + str.at(14).toUpperCase()
-    + str.slice(15));
-
-console.log(str.at(0).toUpperCase().concat(str.slice(1, 11)));
-
-
-
-
+//             32  +  32 + 32  + 12  + 12  - 12 - 31 + 12 + 12 + 10 + 31
+// console.log(x++ + --x + x-- + y++ + --y - y - x + y + y-- + --y + x++);
