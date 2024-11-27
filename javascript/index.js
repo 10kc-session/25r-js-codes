@@ -1,102 +1,117 @@
-/**
- * For Loop and Arrays 
- * --------------------
- *          Syn :
- *                  for(initialisation ; condition ; updation){
- *                        // statements
- *                  }  
- *                  initialisation -> baby born
- *                  condition      -> alive / death
- *                  statements     -> cry , milk , sleep
- *                  updation       -> ageing
- */
-/**
- * first iteration - only initialisation and condition
- * if condition is true , statements are executed
- * if condition is false , loop is terminated
- * 
- * from second iteration to end of loop
- *          -> updation and condition 
- *         if condition is true , statements are executed
- *         if condition is false , loop is terminated  
- * 
- * 
- * Array in Javascript
- * -------------------
- *      In javascript array is an object which can store any type of datatype without
- *      any length restrictions in a single varaible
- *      Always Array indexes starts from 0 
- *      Arrays stores data in form of continous memory allocation
- *      it can stores homogenous and hetrogenous data
- *      There are several ways to create an Array
- *      --------------------------------------------
- *          1. using [] 
- *          2. using new Array();
- *          3. Array.from();
- *        Syn : 
- *                  variable refVar = [];
- */
-var arr = [];
-console.log(arr, typeof arr);
-console.log(arr.length);
+// Research -> join , concat , indexOf
+//              ..        -2   -1
+var arr = [10, 12, 15, 14, 67, 85];
+//         0    1   2   3  4   5
+console.log(arr.at(4));
+console.log(arr.at(0));
+console.log(arr.at(-1));
+console.log(arr[arr.length - 1]);
+console.log(arr.at(20));
 
 console.clear();
 
-arr = [1, 2, 3, 4, 5, 6];
 console.log(arr);
-console.table(arr);
-console.log(arr.length);
-console.log(arr[0]);
+arr.unshift(102);
+console.log(arr);
+var result = arr.unshift(30);  // 30 102 remaining -> 8
+console.log(arr);
+console.log(result);
+
+var res = arr.unshift(1, 2, 3, 4, 5);
+console.log(arr);
+console.log(res);
 
 console.clear();
 
-arr[0] = 10;
+arr = [10, 14, 19, 12, 49];
 
-console.log(arr[0]);
+// arr[arr.length] = 20; // adding element at last
+
+arr.push(10);
+
+var res = arr.push(45, 18, 7);
+
+console.log(res); // 9
 console.log(arr);
 
 console.clear();
 
-arr = [1, 2, 3, 4, 5, 6];
-
-arr[4] = arr[1] + arr[3];
+arr = [10, 12, 94, 32, 14, 56];
 console.log(arr);
+arr.pop();   // 
+var res = arr.pop();
+console.log(arr); // 10 12 94 32 
+console.log(res);
 
-console.log(arr[0]); // accessing first element
-console.log(arr[5]);
-console.log(arr.length);
-console.log(arr[arr.length - 1]); // accessing last element
+arr = [];
+res = arr.pop();
+console.log(res);
 
 console.clear();
 
-
-arr = ['Devara', 'Akash', 'Krishna',
-    12, false, true, 3.0, 3.222222222,
-    NaN, undefined, {}, [], function () { }];
-
+arr = [12, 4123, 312, 43, 34, 1, 12, 12];
 console.log(arr);
-console.table(arr);
+arr.shift();
+res = arr.shift();
+console.log(arr, res);
 
 console.clear();
 
-arr = ['Haritha', 'Durga', 'Ramu', 'PK', 'Sai', 'Pranathi', 'Sharuk'];
+arr = [12, 43, 12, 34];
+//    [0 , 0 , 0 , 0 ]
 
-console.log(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]);
+// 0 - 3
+// for (var i = 0; i < arr.length; i++) {
+//     arr[i] = 0;
+//     console.log(arr);
+// }
 
-console.log("-----------------------")
+arr.fill(0);
+console.log(arr);
 
-for (var i = 0; i <= 6; i++) {
-    console.log(arr[i]);
-}
+arr = [12, 43, 12, 34];
 
-console.log("-----------------------")
-// 0 to 6
-for (var i = 0; i <= arr.length - 1; i++) {
-    console.log(arr[i]);
-}
-console.log("-----------------------")
+arr.fill(0, 1);
+console.log(arr);
 
-for (var i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
-}
+arr = [12, 43, 12, 34];
+arr.fill(0, 1, 3);
+console.log(arr);
 
+console.clear();
+
+//Slice and Splice
+
+arr = [12, 43, 54, 67, 8, 44, 2, 2, 4];
+console.log(arr.slice());
+console.log(arr.slice(2));
+console.log(arr);
+console.log(arr.slice(3, 7));
+console.log(arr.slice(-4));
+console.log(arr.slice(3, -2));
+console.log(arr.slice(0, -1));
+console.log(arr.slice(-14));
+console.log(arr.slice(-5, -10));
+console.clear();
+
+arr = [1, 4, 6, 1, 3, 4, 5, 9];
+res = arr.splice(1);
+console.log(arr);
+console.log(res);
+console.clear();
+arr = [2, 3, 45, 2, 4, 3, 21, 321, 3, 5, 5];
+arr.splice(0);
+console.log(arr);
+arr = [2, 3, 45, 2, 4, 3, 21, 321, 3, 5, 5];
+arr.splice(4, 1);
+console.log(arr);
+console.clear();
+arr.splice(6, 3);
+// 2 3 45 2 3 21 5
+console.log(arr);
+arr.splice(3, 1, 76);
+console.log(arr);
+arr.splice(3, 0, 34, 454, 65, 57, 67, 67);
+console.log(arr);
+
+console.clear();
