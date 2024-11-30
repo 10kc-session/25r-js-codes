@@ -1,102 +1,78 @@
 /**
- *  Objects
- * ----------
- *      Object are used to store data in form of key and value pairs
- *      Object in javascript is represented by {} i.e literal Object
- *      keys in object should be always string (Recommended)
- *      values in object can be any type of data 
- *          Syn : 
- *                  variable refVar = {};
- *      key value pairs are seperated by , (Comma);
- *      if there are duplicate keys in object , the value is assigned with last 
- *      available key
- *       
- *      FAQ 
- *      ---
- *          How many Ways to Access Values from Literal Object
- *              1. dot notation -> refVar.keyName
- *              2. square notation (Recommended) -> refVar["keyname"];
- *              3. Object.values(ref)
+ *      / -> quoent 
+ *      % -> remainder
+ *      
  */
-var obj = {
-    "empName": "Shiva",
-    "tech": "JS",
-    "isAlive": true,
-    "empName": "Shiva Kumar",
-    "empName": "Shiva Reddy",
-    "empname": "Shiva Saithan",
-}
-// CRUD -> create , read , update , delete
-console.table(obj);
-console.log(obj.empName);
-console.log(obj['tech']);
-
+var a = 10;
+var b = 2;
+console.log(`${a / b}`);
+console.log(a % b);
+console.log(a % b + 2);
+console.log(b % a * 3);
+console.log(b++ % a == 0);
+console.log(b);
 console.clear();
-console.log(`Hi , My Name is ${obj.empName} , I am Currently learning ${obj.tech} because i am ${obj.isAlive}`);
-console.log(`Hi , My Name is ${obj['empName']} , I am Currently learning ${obj['tech']} because i am ${obj['isAlive']}`);
 
-obj['gender'] = "Male"; // Adding Property to Exisiting object
-console.log(obj);
-
-obj['tech'] = "Javascript"; // Updating Existing Property of Object 
-console.log(obj);
-
-delete obj.empname; // deleting Existing property from object
-
-console.log(obj);
-
-var address = {
-    "state": "TS",
-    "city": "Hyderabad",
-    "pincode": "500042"
-}
-console.log(address);
-
-obj['address'] = address;
-
-console.log(obj);
-console.clear();
-console.log(obj.address); // Address Object , reading
-console.log(obj.address.state); // Ts
-console.log(obj['address'].pincode); // address.pincode
-console.log(obj.address['pincode']); // address['pincode']
-console.log(obj['address']['pincode']); // address['pincode]
+// Research 
+console.log((2 % 3 == b++) + 10);
+console.log(0.1 + 0.2 == 0.3);
+console.log(0.2 + 0.5 == 0.7);
 
 console.clear();
 
-var employee = {
-    'empName': "John",
-    empId: 100,
-    'address': {
-        'state': 'AP',
-        'capital': 'Amaravathi'
-    },
-    0: "employee"
-}
-console.log(employee);
-delete employee.empId;
-console.log(employee);
-console.log(employee.address.capital);
-// console.log(employee.0);
-console.log(employee['0']);
+/**
+ * Logical Operators
+ * ----------------
+ *      && -> and, || -> or , ! -> not
+ *      and 
+ *      
+ *      true && true -> true
+ *      false && false -> false
+ *      true && false ->  false
+ *      fasle && true  -> false
+ */
+console.log(true && true);
+console.log(false && false);
+console.log(true && false);
+console.log(false && true);
+
+// ==  <= < > >=
+console.log(10 == '10' && false);
+console.log(10 >= 1 && 1 <= 10);
+console.log(3 > 1 && 10 < 10);
+
+console.clear();
+
+var gender = "MALE";
+var age = 21;
+// console.log(gender == 'Female' && age >= 21);
+// console.log(gender == 'female' && age >= 21);
+// console.log(gender == 'Female' && age < 21);
+// console.log(gender == 'Male' && age >= 24);
+console.log(gender == "MALe" && true);
+console.log(0 && 1);
+console.log(1 && 1);
+console.log(1 && 0);
+console.log(0 && 0);
+console.log("str" && null);
+console.log(10 && -1);
+console.log(true && '0');
+console.log('0' && true);
+console.clear();
+var a = 10;
+var b = 11;
+console.log(a == 10 && b++ == 11);
+console.log(b);
+console.log(a != 10 && ++b == 12);
+console.log(b);
+console.log(b++ !== false && ++a == 11);
+console.log(b , a);
+console.log(a++ == a && b++ == a && true);
+console.log((true && 10 == 10) && true);
+console.log(a , b);
 
 
-var arr = [
-    {
-        "id": 1,
-        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-        "price": 109.95,
-        "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-        "category": "men's clothing",
-        "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-        "rating": {
-            "rate": 3.9,
-            "count": 120
-        }
-    }
-]
-// Rate : 3.9 , Count : 120
-console.log(arr);
-obj = arr[0];
-console.log(`Rate : ${arr[0].rating.rate} , Count : ${arr[0].rating.count}`);
-console.log(`Rate : ${obj.rating.rate} , Count : ${obj.rating.count}`);
+
+
+
+
