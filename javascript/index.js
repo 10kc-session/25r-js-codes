@@ -66,13 +66,14 @@ console.log(b);
 console.log(a != 10 && ++b == 12);
 console.log(b);
 console.log(b++ !== false && ++a == 11);
-console.log(b , a);
+console.log(b, a);
 console.log(a++ == a && b++ == a && true);
 console.log((true && 10 == 10) && true);
-console.log(a , b);
+console.log(a, b);
 
+console.clear();
 
-
+console.log(gender == "MALe".toUpperCase() && true);
 
 
 
