@@ -1,144 +1,84 @@
 /**
- *  Functions 
- *  ---------
- *      To perform specific operations
- *      reusability
- *      organise
- *      Syn : 
- *              function functionName([parameters]){
- *                  // statements
- *                  [return value]
- *              }
- *              functionName([arguments]);
- */
-function maagie(maagiePacket) {
-    console.log(`Removed ${maagiePacket} and Cooked`);
-}
-maagie("2 packets of maggie");
-
-console.clear();
-
-function generateBill(quantity, price) {
-    console.log(`Total Bill : ${price * quantity}`);
-}
-generateBill(2, 120);
-
-console.clear();
-
-function sumOfTwoNumbers(a, b) {
-    console.log(`Sum of two numbers : ${a + b}`);
-}
-sumOfTwoNumbers(10, 20);
-
-function modOfTwoNumbers(a, b) {
-    console.log(`Mod of two numbers: ${a % b}`);
-}
-modOfTwoNumbers(20, 5);
-
-console.clear();
-
-function sumOfThreeNumber(a, b, c) {
-    console.log(a + b + c);
-}
-sumOfThreeNumber(1, 2, 3);
-
-console.clear();
-
-
-function funOne(a, b) {
-    console.log(a + "" + b);
-    funTwo(a, b);
-}
-function funTwo(a) {
-    console.log(a);
-}
-funOne(12, 14);
-
-console.clear();
-
-function one(a, b, c) {
-    console.log(a, b + c);
-    two(a + b, b + c);
-    console.log("one completed");
-}
-function two(a, b) {
-    console.log("two started");
-    console.log(a + b);
-    console.log("two ended");
-}
-one(10, 30, 21);
-
-console.clear();
-
-function devara(hero, mainCharacter) {
-    console.log("Devara");
-    pushpa(hero + mainCharacter);
-    console.log(hero, mainCharacter);
-    pushpa("Allu Arjun", "PK");
-}
-function pushpa(hero, villian) {
-    console.log("Pushpa");
-    console.log(hero + " " + villian);
-}
-
-function pushpa(hero) {
-    console.log(hero);
-}
-
-function pushpa() {
-    console.log("Hey");
-}
-
-devara("NTR", "Prakash Raj");
-
-
-function x(a, b, c, d) {
-    console.log(a, b, c, d);
-}
-x(10, 20);
-
-console.clear();
-
-// return keyword
-function print() {
-    return "Printed";
-}
-var result = print();
-console.log(result);
-
-console.log(print());
-
-/**
- * if function is returning a value then we need
- * to store the data in any variable or just print 
- * it
- * 
- * Syn : 
- *       varaible identifier =  functionName([arguments]);
- *       console.log(functionName([arguments]));
+ * Functions with return keyword
+ * ------------------------------
+ *      function funcName([parameters]){
+ *          // statements
+ *          [return value]
+ *      }
+ *      variable identifier = funcName([arguments]);
+ *      console.log(funcName([arguments]));
  */
 
+var age = 18;
+if (age >= 18) {
+    console.log("Rahul");
+    // break;
+}
+if (age < 21) {
+    console.log("Ravi");
+}
+
+console.clear();
+
+// for (var j = 0; j < 2; j++) {
+//     for (i = 0; i < 5; i++) {
+//         console.log("One");
+//         break;
+//     }
+//     break;
+// }
 console.clear();
 
 function demo() {
-
+    var i = 10;
+    console.log(i);
 }
-console.log(demo());
-// if any function is not returning a value
-// then output will be undefined
+// demo();
+// console.log(i);
 
 console.clear();
 
-function sample(a) {
-    return a + 10;
+function sample() {
+    console.log(x, y);
+    return 10;
+    var x;
+    function y() {
+        console.log('y')
+    }
 }
-var result = sample(10);
-// console.log(result);
-// console.log(sample(10));
+// sample();
 
-
-function sumOfTwoNumbers(a, b) {
-    return (a + b);
+console.log(x);
+console.log(demo1);
+var x = 10;
+var y = 10;
+function demo1() {
+    console.log(y);
+    console.log(x);
+    var x = 30;
+    return x;
+    console.log(x);
 }
-var sumResult = sumOfTwoNumbers(10, 20) ;
-console.log(sumResult);
+// demo1();
+
+console.clear();
+
+function xyz() {
+    for (var i = 1; i <= 5; i++) {
+        return i;
+    }
+    console.log(i);
+}
+// console.log(xyz());
+
+console.clear();
+
+function abc(a, b, c) {
+    console.log(a + b + c);
+    return pqr(a, b);
+}
+function pqr(a, b) {
+    console.log(a - b);
+    return a + b;
+}
+console.log(abc(3, 2, 1));
