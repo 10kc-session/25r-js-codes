@@ -1,84 +1,56 @@
+// function funOne(a, b, c) {
+//     console.log("One");
+//     return funThree(a + 10) + funThree(a + b + c);
+// }
+// function funTwo(a, b) {
+//     console.log("Two");
+//     return funThree(funOne(a, 32, b));
+// }
+// function funThree(a) {
+//     console.log("Three");
+//     return a + 10;
+// }
+// console.log(funTwo(10, 30));
+
 /**
- * Functions with return keyword
- * ------------------------------
- *      function funcName([parameters]){
- *          // statements
- *          [return value]
- *      }
- *      variable identifier = funcName([arguments]);
- *      console.log(funcName([arguments]));
+ *      Callbacks in javascript
+ *      -----------------------
+ *      The function defination which is passed as argument to another function or 
+ *      method or constructor parameter is known as callbacks
+ *      Mainly callbacks are used in asynchronous operations , array methods ,
+ *      promises and events
+ *      Callbacks can be in form of named functions , arrow functions and anonymous
+ *      functions
+ *            Syn : 
+ *                      function functionName(parameter){
+ *                             // statements
+ *                              parameter([arguments]);
+ *                      }
+ *                      functionName(anotherFunctionDefination);
  */
 
-var age = 18;
-if (age >= 18) {
-    console.log("Rahul");
-    // break;
+// debugger
+function sayHi(callback) {
+    console.log("Hi");
+    console.log(callback);
+    callback();
 }
-if (age < 21) {
-    console.log("Ravi");
+function goodbye() {
+    console.log("Bye");
 }
+sayHi(goodbye);
 
 console.clear();
 
-// for (var j = 0; j < 2; j++) {
-//     for (i = 0; i < 5; i++) {
-//         console.log("One");
-//         break;
-//     }
-//     break;
-// }
-console.clear();
-
-function demo() {
-    var i = 10;
-    console.log(i);
+function x(callback1, callback2) {
+    console.log(callback1, callback2);
+    callback1();
+    callback2();
 }
-// demo();
-// console.log(i);
-
-console.clear();
-
-function sample() {
-    console.log(x, y);
-    return 10;
-    var x;
-    function y() {
-        console.log('y')
-    }
+function y() {
+    console.log("Y Function");
 }
-// sample();
-
-console.log(x);
-console.log(demo1);
-var x = 10;
-var y = 10;
-function demo1() {
-    console.log(y);
-    console.log(x);
-    var x = 30;
-    return x;
-    console.log(x);
+function z() {
+    console.log("Z Function");
 }
-// demo1();
-
-console.clear();
-
-function xyz() {
-    for (var i = 1; i <= 5; i++) {
-        return i;
-    }
-    console.log(i);
-}
-// console.log(xyz());
-
-console.clear();
-
-function abc(a, b, c) {
-    console.log(a + b + c);
-    return pqr(a, b);
-}
-function pqr(a, b) {
-    console.log(a - b);
-    return a + b;
-}
-console.log(abc(3, 2, 1));
+x(y, z);
