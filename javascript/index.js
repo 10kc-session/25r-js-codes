@@ -1,56 +1,161 @@
-// function funOne(a, b, c) {
-//     console.log("One");
-//     return funThree(a + 10) + funThree(a + b + c);
-// }
-// function funTwo(a, b) {
-//     console.log("Two");
-//     return funThree(funOne(a, 32, b));
-// }
-// function funThree(a) {
-//     console.log("Three");
-//     return a + 10;
-// }
-// console.log(funTwo(10, 30));
-
 /**
- *      Callbacks in javascript
- *      -----------------------
- *      The function defination which is passed as argument to another function or 
- *      method or constructor parameter is known as callbacks
- *      Mainly callbacks are used in asynchronous operations , array methods ,
- *      promises and events
- *      Callbacks can be in form of named functions , arrow functions and anonymous
- *      functions
- *            Syn : 
- *                      function functionName(parameter){
- *                             // statements
- *                              parameter([arguments]);
- *                      }
- *                      functionName(anotherFunctionDefination);
+ *     Callbacks in js
+ *     -----------------
+ *          function defination which as argument to another function , method or 
+ *          constructor parameter is known as callbacks
  */
+// function one(callback) {
+//     console.log(callback);
+//     callback();
+// }
+// function two() {
+//     console.log("Two");
+// }
+// one(two);
 
-// debugger
-function sayHi(callback) {
-    console.log("Hi");
-    console.log(callback);
-    callback();
+// Higher order function
+
+function one(callback) {
+    callback(10, 20);
 }
-function goodbye() {
-    console.log("Bye");
+function two(a, b) {
+    console.log(`A + b = ${a + b}`);
 }
-sayHi(goodbye);
+one(two);
 
 console.clear();
 
-function x(callback1, callback2) {
-    console.log(callback1, callback2);
+
+function funOne(a, b, c) {
+    console.log(c(a, b));
+}
+function getSum(a, b) {
+    return a + b;
+}
+funOne(10, 30, getSum);
+
+console.clear();
+
+function funThree(a, b, c) {
+    var result = b(a) + c(a + 5);
+    console.log(result);
+}
+function funFour(x) {
+    return x * 2;
+}
+function funFive(x) {
+    return x * 5;
+}
+
+funThree(14, funFive, funFour);
+
+console.clear();
+
+
+function test(callback1, callback2) {
     callback1();
+    console.log("2");
+    callback1();
+    console.log("8");
+    callback2();
+    console.log("9");
     callback2();
 }
-function y() {
-    console.log("Y Function");
+test(function x() {
+    console.log("3");
+}, function y() {
+    console.log("6");
+});
+/**
+ * Anonymous functions in Javascipt
+ * ---------------------------------
+ *      The function which is not having any function name is known anonymous function
+ *      these functions are used to pass as argument to another functions , 
+ *      methods , events and timing functions (setTimeout and setInterval);
+ *      These functions can store in variable or can be passed as arguments
+ *      SYn : 
+ *              function(parameter1, .... , paramterN){
+ *                      // statements
+ *                    [return value]
+ *              }
+ *              variable referenceVariable = function([parameter]){
+ *                      // statements
+ *                      [return value];
+ *              }
+ *              referenceVaraible([arguments]);
+ * 
+ */
+console.clear();
+
+// First Class Functions
+
+// var y = function() {
+//     console.log("Hello World");
+// }
+// // x();
+// console.log(y);
+// y();
+
+var print = function (a, b) {
+    console.log("Demo Function Called", a + b);
 }
-function z() {
-    console.log("Z Function");
+console.log(print);
+print(10, 30);
+
+
+console.clear();
+
+var printer = function (a, b, c) {
+    console.log(a + b + c);
 }
-x(y, z);
+printer(10, 40, 50);
+
+console.clear();
+
+var sample = function (a, b) {
+    console.log("Hey");
+    return a + b;
+}
+console.log(sample(10, 30));
+
+console.clear();
+
+function demo1(callback) {
+    callback();
+}
+demo1(function () {
+    console.log("Anonymous Function");
+});
+
+// demo1(() => console.log("Arrow Function"));
+
+
+/**
+ * function funOne(a, b, c) {
+    console.log(c(a, b));
+}
+function getSum(a, b) {
+    return a + b;
+}
+funOne(10, 30, getSum);
+ */
+
+function funOne(a, b, c) {
+    console.log(c(a, b));
+}
+funOne(10, 30, function (a, b) {
+    return a + b;
+})
+
+console.clear();
+
+
+var funThree = function (a, b, c) {
+    var result = b(a) + c(a + 5);
+    console.log(result);
+}
+funThree(14, function (x) {
+    return x * 5;
+}, function (x) {
+    return x * 2;
+});
