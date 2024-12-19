@@ -1,51 +1,51 @@
-function add(val, callback) {
-    callback(val + 10);
+function placeOrder(orderId, callback) {
+    setTimeout(() => {
+        if (true) {
+            console.log(`Order ${orderId} placed.`);
+            callback();
+        }
+        else
+            console.log("Orderer placed failed")
+    }, 1000);
 }
-function sub(val, callback) {
-    callback(val - 5);
+function dispatchOrder(orderId, callback) {
+    setTimeout(() => {
+        if (true) {
+            console.log(`Order ${orderId} dispatched.`);
+            callback();
+        }
+        else
+            console.log("Dispatch Failed");
+    }, 1000);
+}
+function shipOrder(orderId, callback) {
+    setTimeout(() => {
+        console.log(`Order ${orderId} shipped.`);
+        callback();
+    }, 1000);
+}
+function outForDelivery(orderId, callback) {
+    setTimeout(() => {
+        console.log(`Order ${orderId} is out for delivery.`);
+        callback();
+    }, 1000);
 }
 
-function mul(val, callback) {
-    callback(val * 5);
+function deliverOrder(orderId, callback) {
+    setTimeout(() => {
+        console.log(`Order ${orderId} delivered.`);
+        callback();
+    }, 1000);
 }
 
-function div(val, callback) {
-    callback(val / 2);
-}
-add(20, (addRes) => {
-    sub(addRes, (subRes) => {
-        mul(subRes, (mulRes) => {
-            div(mulRes, (divRes) => {
-                console.log(divRes);
-            })
-        })
-    })
-})
-
-function placeOrder(dispatch) {
-    console.log("Order Placed");
-    dispatch("Failed to Dispatch", false);
-}
-function shipping(outOfDelivery) {
-    console.log("Shipping Success");
-    outOfDelivery("Your Order is Out of Delivery");
-}
-placeOrder((message, status) => {
-    if (status) {
-        console.log(message);
-        shipping((outMessage) => {
-            console.log(outMessage);
+placeOrder("12345", () => {
+    dispatchOrder("12345", () => {
+        shipOrder("12345", () => {
+            outForDelivery("12345", () => {
+                deliverOrder("12345", () => {
+                    console.log("Order tracking completed!");
+                });
+            });
         });
-    } else {
-        console.log(message);
-    }
-})
-
-class X {
-    constructor(callback) {
-        callback(10, 30);
-    }
-}
-let x = new X((a, b) => {
-    console.log(a, b);
+    });
 });
