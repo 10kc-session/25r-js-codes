@@ -8,4 +8,12 @@ fetch(URL)
     .catch(err => console.log("Error"));
 
 
-
+function print() {
+    setTimeout(() => {
+        console.log("Settimeout")
+    }, 1000);
+    return new Promise((resolve, _) => {
+        resolve("Success");
+    })
+}
+print().then(res => console.log(res));
