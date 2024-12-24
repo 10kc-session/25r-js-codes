@@ -1,19 +1,16 @@
-//  fetch(URL , options)
-
-const URL = "https://fakestoreapi.com/products";
-
-fetch(URL)
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.log("Error"));
-
-
-function print() {
-    setTimeout(() => {
-        console.log("Settimeout")
-    }, 1000);
-    return new Promise((resolve, _) => {
-        resolve("Success");
+fetch("http://localhost:3000/students", {
+    "method": "POST",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": JSON.stringify({
+        "id": "2",
+        "name": "Durga"
     })
-}
-print().then(res => console.log(res));
+}).then(res => {
+    if (res.ok) {
+        console.log(res.statusText);
+    } else {
+        console.log("failed");
+    }
+}).catch(err => console.error(err));
