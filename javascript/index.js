@@ -1,16 +1,19 @@
-fetch("http://localhost:3000/students", {
-    "method": "POST",
+/**
+ *    fetch(URL , options);
+ */
+let options = {
+    "method": "PATCH",
     "headers": {
         "Content-Type": "application/json"
     },
     "body": JSON.stringify({
-        "id": "2",
-        "name": "Durga"
+        "id": "4",
+        "name": "donkey"
     })
-}).then(res => {
-    if (res.ok) {
-        console.log(res.statusText);
-    } else {
-        console.log("failed");
-    }
-}).catch(err => console.error(err));
+}
+fetch("http://localhost:5000/data/4", options)
+    .then(resp => {
+        if (resp.ok) {
+            console.log(resp.statusText);
+        }
+    }).catch(err => console.error(err));

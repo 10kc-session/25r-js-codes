@@ -1,12 +1,30 @@
 {
-  "students": [
+  "data": [
     {
       "id": "1",
-      "name": "Haritha"
+      "name": "x"
     },
     {
       "id": "2",
-      "name": "Durga"
+      "name": "y"
+    },
+    {
+      "id": "3",
+      "name": "Z"
+    },
+    {
+      "id": "4",
+      "name": "donkey"
+    },
+    {
+      "id": "5",
+      "name": "E"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "soap"
     }
   ]
 }
