@@ -32,15 +32,24 @@ let options = {
         "Content-Type": "application/json"
     }
 }
-let url = "http://localhost:5000/data/"
+let url = "http://localhost:5000/data/";
 
-for (let i = 0; i < data.length; i++) {
-    let obj = data[i];
-    options.body = JSON.stringify(obj);
+data.forEach(ele => {
+    options.body = JSON.stringify(ele);
     fetch(url, options)
         .then(res => {
             if (res.ok) {
                 console.log(res.statusText);
             }
         })
-}
+})
+// for (let i = 0; i < data.length; i++) {
+//     let obj = data[i];
+//     options.body = JSON.stringify(obj);
+//     fetch(url, options)
+//         .then(res => {
+//             if (res.ok) {
+//                 console.log(res.statusText);
+//             }
+//         })
+// }
