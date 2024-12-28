@@ -1,81 +1,112 @@
-let arr = ["hemanth", "pavan kalyan", "haritha", "maruthi"];
-
-// let resArr = [];
-// arr.forEach(ele => resArr.push(ele.toUpperCase()));
-// console.log(resArr);
-
-let resArr = arr.map(ele => ele.toUpperCase());
-// console.log(resArr);
-
-let arr2 = [1, 2, 3, 4, 5];
-
-let res = arr2.filter(ele => ele % 2 == 0);
-console.log(res);
-console.log(arr2.map(ele => ele % 2 == 0));
-
-
-function isEven(ele) {
-    return ele % 2 === 0;
+// async and await 
+function generate() {
+    return Promise.resolve("Hello World");
 }
+// generate().then(res => console.log(res));
 
-console.log(arr2.map(isEven));
+async function generator() {
+    return "Hello World";
+}
+// console.log(generator());
+// generator().then(res => console.log(res));
 
-// res = []; // 2 , 4
+// console.log(Promise.resolve('Hello').then(res => console.log(res)));
 
-// for (let i = 0; i < arr2.length; i++) {
-//     if (arr2[i] % 2 == 0) {
-//         res.push(arr2[i]);
-//     }
+// Promise.resolve("Hello There")
+//     .then(res => {
+//         console.log(res);
+//         return "Promise Object";
+//     })
+//     .then(res => console.log(res))
+//     .then(res => console.log(res));
+
+// const promise = new Promise((resolve, reject) => {
+//     resolve('Hello');
+// });
+// promise
+//     .then(res => {
+//         console.log(res);
+//         return new Promise((resolve, reject) => resolve('World'));
+//     })
+//     .then(res => console.log(res));
+// const promise = Promise.reject('Failure');
+// promise.catch(err => console.log(err)).then(() => console.log("Completed"));
+
+// const promise = Promise.resolve('Step 1');
+// promise
+//     .then(res => {
+//         console.log(res);
+//         return new Promise((resolve, reject) => {
+//         });
+//     })
+//     .then(res => console.log(res));
+
+// const promise = new Promise((resolve, reject) => {
+
+// });
+// promise
+//     .catch(err => {
+//         console.log(err);
+//         return 'Recovered';
+//     })
+//     .then(res => console.log(res));
+
+
+// function y() {
+//     return promise1.then(res => res);
 // }
-// console.log(res);
+// y().then(res => console.log(res));
 
-// res = [odd , even , odd , even , odd];
-
-// res = [];
-// for (let index = 0; index < arr2.length; index++) {
-//     if (arr2[index] % 2 == 0) {
-//         res.push("Even");
-//     } else {
-//         res.push("Odd");
-//     }
-// }
-// console.log(res);
-
-// console.log(arr2.map(ele => ele % 2 == 0 ? "Even" : "Odd"));
-
-
-
-console.clear();
-// console.log(arr2);
-// arr2.filter(ele => ele % 2 == 0).map(ele => ele ** 2)
-//     .forEach(ele => console.log(ele));
-
-// res = [];
-// for (let i = 0; i < arr2.length; i++) {
-//     res[i] = (arr2[i] * arr2[i]);
-// }
-// console.log(res);
-
-
-// arr.forEach(value => console.log(value.toUpperCase()));
-
-// console.log(arr);
-
-// arr.forEach((value, index, arr) => {
-//     arr[index] = value[0].toUpperCase().concat(value.substring(1));
+// let promise1 = new Promise(resolve => {
+//     resolve("Hello World");
 // })
 
-// console.log(arr);
+// async function x() {
+//     let res = await promise1; // Hello World
+//     return res;
+// }
+// x().then(res => console.log(res));
 
 
-arr = [1, 1, 1, 1, 3, 4, 5];
+// fetch("http://localhost:3000/data")
+//     .then(response => response.json())
+//     .then(data => console.log(data));
 
-count = 0;
-arr.forEach(ele => {
-    if (ele === 1) {
-        count++;
-    }
-})
-console.log(count);
+// async function getData() {
+//     let response = await fetch("http://localhost:3000/data");
+//     let data = await response.json();
+//     console.log(data);
+// }
+// getData();
 
-console.log(arr.filter(ele => ele === 1).length);
+
+// let promise = new Promise(resolve => {
+//     setTimeout(() => {
+//         resolve("Hello World");
+//     }, 2000);
+// })
+// promise.then(result => console.log(result));
+// console.log("Completed");
+
+async function printData() {
+    let promise = new Promise(resolve => {
+        setTimeout(() => {
+            resolve("Hello World");
+        }, 2000);
+    })
+    let res = await promise;
+    console.log(res);
+    console.log("Completed");
+}
+function print() {
+    let promise = new Promise(resolve => {
+        setTimeout(() => {
+            resolve("Hello World");
+        }, 2000);
+    })
+    promise.then(res => console.log(res));
+    console.log("Completed");
+}
+print();
+// printData();
+// console.log("Started");
