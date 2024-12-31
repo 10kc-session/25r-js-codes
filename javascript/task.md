@@ -1,352 +1,120 @@
-### 30 Advanced MCQs on `map`, `filter`, and `forEach` in JavaScript
+## Understanding `await` in JavaScript
 
-#### Array Transformation with `map`
-1. **What will the following code output?**  
-   ```javascript
-   const arr = [1, 2, 3, 4];
-   const result = arr.map((num, index, array) => array[index] * 2);
-   console.log(result);
-   ```  
-   a) `[1, 2, 3, 4]`  
-   b) `[2, 4, 6, 8]`  
-   c) `[4, 8, 12, 16]`  
-   d) `undefined`  
+`await` is a powerful keyword used in asynchronous JavaScript programming that allows developers to pause the execution of an async function until a Promise is resolved or rejected. This mechanism simplifies working with asynchronous code, making it easier to read and maintain.
 
-2. **What will the result of this code be?**  
-   ```javascript
-   const arr = [10, 20, 30];
-   const result = arr.map((num) => num.toString());
-   console.log(result);
-   ```  
-   a) `['10', '20', '30']`  
-   b) `[10, 20, 30]`  
-   c) `['10', 20, '30']`  
-   d) `undefined`  
+---
 
-3. **Which of the following transforms each string to uppercase?**  
-   ```javascript
-   const arr = ['a', 'b', 'c'];
-   ```  
-   a) `arr.map(str => str.toUpperCase());`  
-   b) `arr.forEach(str => str.toUpperCase());`  
-   c) `arr.filter(str => str.toUpperCase());`  
-   d) `arr.map(str => str.toLowerCase());`  
+### Key Characteristics
 
-4. **What will this code return?**  
-   ```javascript
-   const arr = [4, 5, 6];
-   const result = arr.map(num => num + 1).filter(num => num > 5);
-   console.log(result);
-   ```  
-   a) `[4, 5]`  
-   b) `[5, 6, 7]`  
-   c) `[6, 7]`  
-   d) `[7]`  
+- **Scope Restriction**: Can only be used inside functions declared with the `async` keyword.
+- **Execution Suspension**: Temporarily pauses the function's execution.
+- **Promise Resolution**: Extracts the resolved value from a Promise without the need for `.then()`.
+- **Synchronous-Like Syntax**: Makes asynchronous operations resemble synchronous code.
 
-5. **What happens if `map` callback does not return a value?**  
-   ```javascript
-   const arr = [1, 2, 3];
-   const result = arr.map((num) => {
-     console.log(num);
-   });
-   console.log(result);
-   ```  
-   a) `undefined`  
-   b) `[undefined, undefined, undefined]`  
-   c) `[null, null, null]`  
-   d) `[]`  
+---
 
-#### Filtering Data with `filter`
-6. **Which of the following filters numbers greater than 5?**  
-   ```javascript
-   const arr = [1, 3, 6, 8];
-   ```  
-   a) `arr.map(num => num > 5);`  
-   b) `arr.filter(num => num > 5);`  
-   c) `arr.forEach(num => num > 5);`  
-   d) `arr.filter(num => num < 5);`  
+### Syntax and Basic Usage
 
-7. **What will this code output?**  
-   ```javascript
-   const arr = [4, 5, 6];
-   const result = arr.filter((num, index) => index % 2 === 0);
-   console.log(result);
-   ```  
-   a) `[4]`  
-   b) `[4, 6]`  
-   c) `[5]`  
-   d) `[5, 6]`  
-
-8. **What will this code return?**  
-   ```javascript
-   const arr = ['apple', 'banana', 'cherry'];
-   const result = arr.filter(word => word.length > 5);
-   console.log(result);
-   ```  
-   a) `['apple', 'banana']`  
-   b) `['banana', 'cherry']`  
-   c) `['cherry']`  
-   d) `[]`  
-
-9. **How can you filter non-null values from an array?**  
-   ```javascript
-   const arr = [1, null, 2, undefined, 3];
-   ```  
-   a) `arr.filter(num => num !== null);`  
-   b) `arr.filter(num => num != null);`  
-   c) `arr.filter(num => !!num);`  
-   d) All of the above  
-
-10. **What does the following code output?**  
-    ```javascript
-    const arr = [1, 2, 3];
-    const result = arr.filter((num, index, array) => array.includes(num + 1));
+```javascript
+async function example() {
+    let result = await promise;
+    // Code continues after promise resolves
     console.log(result);
-    ```  
-    a) `[1, 2]`  
-    b) `[2, 3]`  
-    c) `[1, 2, 3]`  
-    d) `[]`  
+}
+```
 
-#### Iteration with `forEach`
-11. **What is logged by the following code?**  
-    ```javascript
-    const arr = [10, 20, 30];
-    arr.forEach(num => console.log(num * 2));
-    ```  
-    a) Logs `10, 20, 30`  
-    b) Logs `20, 40, 60`  
-    c) Logs `undefined`  
-    d) Logs `[20, 40, 60]`  
+---
 
-12. **What happens if you try to break out of a `forEach` loop using `break`?**  
-    a) The loop breaks immediately.  
-    b) The loop throws an error.  
-    c) The loop continues without interruption.  
-    d) The loop skips the current iteration.  
+### Behavior Details
 
-13. **What will the following code output?**  
-    ```javascript
-    const arr = [1, 2, 3];
-    const result = arr.forEach(num => num * 2);
-    console.log(result);
-    ```  
-    a) `[2, 4, 6]`  
-    b) `[1, 2, 3]`  
-    c) `undefined`  
-    d) `[]`  
+#### 1. **Execution Pause**
+   - When `await` is encountered, the function pauses execution until the Promise resolves or rejects.
+   - While waiting, the function yields control back to the event loop, allowing other tasks to execute.
+   - Once the Promise is fulfilled or rejected, the function resumes from the `await` line with the resolved value or throws an error.
 
-14. **Can `forEach` be used to transform an array?**  
-    a) Yes, directly.  
-    b) No, because `forEach` does not return a value.  
-    c) Yes, but only with `return` inside the callback.  
-    d) No, because it only works on strings.  
+#### 2. **Promise Handling**
+   - Automatically extracts the resolved value from the Promise:
+     ```javascript
+     const result = await Promise.resolve(42);
+     console.log(result); // Outputs: 42
+     ```
+   - If the Promise is rejected, it throws the error, which can be caught using `try...catch`:
+     ```javascript
+     async function handleError() {
+         try {
+             const result = await Promise.reject("Error occurred");
+         } catch (error) {
+             console.error(error); // Outputs: "Error occurred"
+         }
+     }
+     ```
 
-15. **How many times does the callback execute in the following code?**  
-    ```javascript
-    const arr = [1, 2, 3];
-    arr.forEach((num, index) => {
-      if (index === 1) return;
-      console.log(num);
-    });
-    ```  
-    a) 1  
-    b) 2  
-    c) 3  
-    d) None  
+#### 3. **Outside `async` Function**
+   - Using `await` outside of an `async` function causes a `SyntaxError`. For example:
+     ```javascript
+     // SyntaxError: Unexpected reserved word
+     let result = await somePromise;
+     ```
 
-#### Combining `map`, `filter`, and `forEach`
-16. **What is the output of this code?**  
-    ```javascript
-    const arr = [1, 2, 3, 4];
-    const result = arr.map(num => num * 2).filter(num => num > 5);
-    console.log(result);
-    ```  
-    a) `[6, 8]`  
-    b) `[4, 6, 8]`  
-    c) `[2, 4, 6, 8]`  
-    d) `[8]`  
+---
 
-17. **Which of the following code chains `map` and `forEach` correctly?**  
-    ```javascript
-    const arr = [1, 2, 3];
-    ```  
-    a) `arr.map(num => num * 2).forEach(num => num * 3);`  
-    b) `arr.map(num => num * 2).forEach(num => console.log(num));`  
-    c) `arr.forEach(num => num * 2).map(num => console.log(num));`  
-    d) Both b) and c)  
+### Concurrency Considerations
 
-18. **What is the final result of this code?**  
-    ```javascript
-    const arr = [1, 2, 3];
-    const result = arr
-      .map(num => num * 2)
-      .filter(num => num > 2)
-      .forEach(num => console.log(num));
-    console.log(result);
-    ```  
-    a) `[4, 6]`  
-    b) Logs `4, 6` and then `undefined`  
-    c) Logs `undefined`  
-    d) Logs `4, 6`  
+By default, `await` calls are sequential, meaning each `await` pauses the function until the previous Promise is resolved. This behavior can lead to inefficient execution if multiple asynchronous tasks can run concurrently.
 
-#### Miscellaneous
-19. **Which method(s) return a new array?**  
-    a) `map`  
-    b) `filter`  
-    c) Both a) and b)  
-    d) None  
+#### Running Promises Sequentially
 
-20. **What happens if the callback function passed to `map` throws an error?**  
-    a) The `map` loop stops immediately.  
-    b) The error is caught silently.  
-    c) The error propagates.  
-    d) The corresponding entry in the result array is `undefined`.  
+```javascript
+async function sequential() {
+    const first = await firstPromise();
+    const second = await secondPromise();
+    console.log(first, second);
+}
+```
 
-21. **Which of these operations are best suited for `filter`?**  
-    a) Removing duplicates  
-    b) Summing all numbers in an array  
-    c) Selecting specific items based on a condition  
-    d) Transforming data  
+#### Running Promises Concurrently
 
-22. **What does this code output?**  
-    ```javascript
-    const arr = ['a', 'b', 'c'];
-    const result = arr.map((char, index) => index + char);
-    console.log(result);
-    ```  
-    a) `['0a', '1b', '2c']`  
-    b) `['a0', 'b1', 'c2']`  
-    c) `['a1', 'b2', 'c3']`  
-    d) `undefined`  
+To optimize, use `Promise.all()` or `Promise.allSettled()` to execute Promises concurrently:
 
-23. **What is true about chaining `map`, `filter`, and `forEach`?**  
-    a) They all return a value that can be chained.  
-    b) `forEach` must be used at the end since it returns `undefined`.  
-    c) They cannot be chained together.  
-    d) `map` must always precede `filter`.  
+```javascript
+async function concurrent() {
+    const [first, second] = await Promise.all([firstPromise(), secondPromise()]);
+    console.log(first, second);
+}
+```
 
-### Continuation of Advanced MCQs on `map`, `filter`, and `forEach`
+#### When to Use `Promise.allSettled()`
+- Unlike `Promise.all()`, `Promise.allSettled()` waits for all Promises to settle (either fulfilled or rejected) and provides the status of each Promise.
 
-#### Further Exploration of Chaining
-24. **What will the following code output?**  
-    ```javascript
-    const arr = [2, 3, 4];
-    const result = arr
-      .map(num => num ** 2)
-      .filter(num => num % 2 === 0)
-      .map(num => num / 2);
-    console.log(result);
-    ```  
-    a) `[2, 4]`  
-    b) `[4, 8]`  
-    c) `[2, 8]`  
-    d) `[1, 4, 8]`  
+```javascript
+async function checkResults() {
+    const results = await Promise.allSettled([promise1, promise2]);
+    console.log(results);
+}
+```
 
-25. **Which of the following is the most efficient way to compute the sum of squares of even numbers?**  
-    ```javascript
-    const arr = [1, 2, 3, 4, 5];
-    ```  
-    a)  
-    ```javascript
-    let sum = 0;
-    arr.map(num => num ** 2)
-       .filter(num => num % 2 === 0)
-       .forEach(num => sum += num);
-    ```  
-    b)  
-    ```javascript
-    const result = arr
-      .filter(num => num % 2 === 0)
-      .reduce((sum, num) => sum + num ** 2, 0);
-    ```  
-    c) Both a) and b) are equally efficient.  
-    d) Neither a) nor b) is efficient.  
+---
 
-#### Nested Arrays and Complex Objects
-26. **What will this code output?**  
-    ```javascript
-    const arr = [[1, 2], [3, 4]];
-    const result = arr.map(subArr => subArr.map(num => num * 2));
-    console.log(result);
-    ```  
-    a) `[2, 4, 6, 8]`  
-    b) `[[1, 2], [3, 4]]`  
-    c) `[[2, 4], [6, 8]]`  
-    d) `[2, 4]`  
+### Example Scenario
 
-27. **How do you filter an array of objects based on a specific property?**  
-    ```javascript
-    const arr = [
-      { id: 1, active: true },
-      { id: 2, active: false },
-      { id: 3, active: true },
-    ];
-    ```  
-    a)  
-    ```javascript
-    arr.filter(item => item.active === true);
-    ```  
-    b)  
-    ```javascript
-    arr.filter(item => item.active);
-    ```  
-    c) Both a) and b).  
-    d) Neither.  
+Here’s a practical example of using `await` in a function that depends on asynchronous operations:
 
-28. **What is the output of this code?**  
-    ```javascript
-    const arr = [
-      { id: 1, value: 10 },
-      { id: 2, value: 20 },
-    ];
-    const result = arr.map(obj => ({ ...obj, value: obj.value * 2 }));
-    console.log(result);
-    ```  
-    a)  
-    ```javascript
-    [{ id: 1, value: 20 }, { id: 2, value: 40 }]
-    ```  
-    b)  
-    ```javascript
-    [{ id: 1, value: 10 }, { id: 2, value: 20 }]
-    ```  
-    c)  
-    ```javascript
-    [{ id: 1, value: 2 }, { id: 2, value: 4 }]
-    ```  
-    d) `undefined`  
+```javascript
+async function fetchUserData(userId) {
+    try {
+        const userData = await fetch(`https://api.example.com/user/${userId}`);
+        const userJson = await userData.json();
+        console.log(userJson);
+    } catch (error) {
+        console.error("Failed to fetch user data:", error);
+    }
+}
+```
 
-29. **What is the output of the following chained methods?**  
-    ```javascript
-    const arr = [1, 2, 3, 4];
-    const result = arr
-      .map(num => ({ original: num, squared: num ** 2 }))
-      .filter(obj => obj.squared > 5);
-    console.log(result);
-    ```  
-    a)  
-    ```javascript
-    [{ original: 2, squared: 4 }, { original: 3, squared: 9 }]
-    ```  
-    b)  
-    ```javascript
-    [{ original: 3, squared: 9 }, { original: 4, squared: 16 }]
-    ```  
-    c)  
-    ```javascript
-    [{ original: 4, squared: 16 }]
-    ```  
-    d) `undefined`  
+### Key Notes
 
-30. **What happens if you pass an empty array to `map`, `filter`, or `forEach`?**  
-    ```javascript
-    const arr = [];
-    console.log(arr.map(num => num * 2));
-    console.log(arr.filter(num => num > 2));
-    arr.forEach(num => console.log(num));
-    ```  
-    a) `[]`, `[]`, nothing logged.  
-    b) `[0]`, `[0]`, logs `0`.  
-    c) `undefined`, `undefined`, nothing logged.  
-    d) Throws an error.  
+- **Only Use `await` in `async` Functions**: Ensure that any function using `await` is declared with the `async` keyword.
+- **Error Handling**: Always handle errors when working with Promises to prevent unhandled rejections.
+- **Concurrency vs. Sequential Execution**: Choose the appropriate execution strategy based on the task requirements.
+
+
