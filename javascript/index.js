@@ -1,112 +1,75 @@
-// async and await 
-function generate() {
-    return Promise.resolve("Hello World");
+/**
+ *  Error Handling
+ *  ---------------
+ *      try , catch , finally , throw
+ */
+function division(val1, val2) {
+    try {
+        if (val2 === 0) {
+            throw new Error("Zero is Not Allowed");
+        } else {
+            console.log(val1 / val2);
+        }
+    } catch (err) {
+        console.error(err.message);
+    }
 }
-// generate().then(res => console.log(res));
+// division(10, 0);
 
-async function generator() {
-    return "Hello World";
-}
-// console.log(generator());
-// generator().then(res => console.log(res));
+// var x = function () {
+//     console.log(y);
+// };
+// try {
+//     x();
+// } catch (error) {
+//     console.error(error.message);
+// }
+// console.log("Executed");
 
-// console.log(Promise.resolve('Hello').then(res => console.log(res)));
 
-// Promise.resolve("Hello There")
-//     .then(res => {
-//         console.log(res);
-//         return "Promise Object";
-//     })
+// let promise = new Promise((resolve, reject) => {
+//     reject("Rejected");
+// });
+// promise
 //     .then(res => console.log(res))
-//     .then(res => console.log(res));
+//     .catch(err => console.error(err));
 
-// const promise = new Promise((resolve, reject) => {
-//     resolve('Hello');
-// });
-// promise
-//     .then(res => {
-//         console.log(res);
-//         return new Promise((resolve, reject) => resolve('World'));
+// fetch("http://localhost:5000/data/1")
+//     .then(response => {
+//         if (!response.ok) {
+//             throw `data failed to fetch ${response.status + " " + response.statusText} `
+//         }
+//         return response.json();
 //     })
-//     .then(res => console.log(res));
-// const promise = Promise.reject('Failure');
-// promise.catch(err => console.log(err)).then(() => console.log("Completed"));
+//     .then(data => console.log(data))
+//     .catch(err => console.error(err.message));
 
-// const promise = Promise.resolve('Step 1');
-// promise
-//     .then(res => {
-//         console.log(res);
-//         return new Promise((resolve, reject) => {
-//         });
-//     })
-//     .then(res => console.log(res));
+let deleteDataByName = async (name) => {
+    try {
+        let response = await fetch("http://localhost:5000/data");
+        if (response.ok) {
+            let data = await response.json();
+            data.forEach(async obj => {
+                if (obj.name === name) {
+                    let response = await fetch(`http://localhost:5000/data/${obj.id}`, {
+                        "method": "DELETE"
+                    })
+                    if (response.ok) {
+                        console.log("data deleted");
+                    }
+                } else {
+                    console.log("user not available");
+                }
+            });
+        } else {
+            throw new Error(response.status + "  " + response.statusText);
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
 
-// const promise = new Promise((resolve, reject) => {
-
-// });
-// promise
-//     .catch(err => {
-//         console.log(err);
-//         return 'Recovered';
-//     })
-//     .then(res => console.log(res));
-
-
-// function y() {
-//     return promise1.then(res => res);
-// }
-// y().then(res => console.log(res));
-
-// let promise1 = new Promise(resolve => {
-//     resolve("Hello World");
-// })
-
-// async function x() {
-//     let res = await promise1; // Hello World
-//     return res;
-// }
-// x().then(res => console.log(res));
-
-
-// fetch("http://localhost:3000/data")
-//     .then(response => response.json())
-//     .then(data => console.log(data));
-
-// async function getData() {
-//     let response = await fetch("http://localhost:3000/data");
-//     let data = await response.json();
-//     console.log(data);
-// }
-// getData();
-
-
-// let promise = new Promise(resolve => {
-//     setTimeout(() => {
-//         resolve("Hello World");
-//     }, 2000);
-// })
-// promise.then(result => console.log(result));
-// console.log("Completed");
-
-async function printData() {
-    let promise = new Promise(resolve => {
-        setTimeout(() => {
-            resolve("Hello World");
-        }, 2000);
-    })
-    let res = await promise;
-    console.log(res);
-    console.log("Completed");
 }
-function print() {
-    let promise = new Promise(resolve => {
-        setTimeout(() => {
-            resolve("Hello World");
-        }, 2000);
-    })
-    promise.then(res => console.log(res));
-    console.log("Completed");
-}
-print();
-// printData();
-// console.log("Started");
+deleteDataByName("Nikitha");
+
+
+
