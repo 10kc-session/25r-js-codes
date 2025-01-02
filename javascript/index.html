@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="shortcut icon" href="../Extras/JS Engine.png" type="image/x-icon">
+    <style>
+        p {
+            background-color: black;
+            color: white;
+            font-size: 2rem;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <script src="./index.js"></script>
+    <script>
+        let p = document.createElement("p");
+        p.innerText = "Hello World";
+        document.body.appendChild(p);
+    </script>
 </body>
 
 </html>
