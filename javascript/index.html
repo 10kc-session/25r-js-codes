@@ -5,24 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="shortcut icon" href="../Extras/JS Engine.png" type="image/x-icon">
     <style>
-        p {
-            background-color: black;
-            color: white;
-            font-size: 2rem;
+        .header {
+            display: flex;
+            justify-content: space-between;
             padding: 10px;
+            gap: 10px;
+            background-color: #203040;
+            color: #fff;
+        }
+
+        .header>nav {
             text-align: center;
+            width: 100%;
+            transition: 0.4s ease;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .header>nav:hover {
+            background-color: #fff;
+            color: #203040;
         }
     </style>
 </head>
 
 <body>
-    <script>
-        let p = document.createElement("p");
-        p.innerText = "Hello World";
-        document.body.appendChild(p);
-    </script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
