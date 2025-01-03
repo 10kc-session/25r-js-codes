@@ -6,26 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .header {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .grid-container {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 10px;
-            background-color: #203040;
-            color: #fff;
         }
 
-        .header>nav {
-            text-align: center;
-            width: 100%;
-            transition: 0.4s ease;
-            cursor: pointer;
+        /* Primary color = #30CCB3; Secondary color = #FFFFFE; Accent color=#E6E439 */
+        .item {
             padding: 10px;
-        }
-
-        .header>nav:hover {
-            background-color: #fff;
-            color: #203040;
+            font-size: calc(1.2rem + 0.5vw);
+            text-align: left;
+            background-color: #30CCB3;
+            color: #ffe;
         }
     </style>
 </head>
