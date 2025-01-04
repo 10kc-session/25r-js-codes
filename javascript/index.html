@@ -6,26 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        table,
+        tr,
+        th,
+        td {
+            border: 2px solid;
+            border-collapse: collapse;
         }
 
-        .grid-container {
-            height: 100vh;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 10px;
+        table {
+            width: 100%;
         }
 
-        /* Primary color = #30CCB3; Secondary color = #FFFFFE; Accent color=#E6E439 */
-        .item {
+        th,
+        td {
             padding: 10px;
-            font-size: calc(1.2rem + 0.5vw);
-            text-align: left;
-            background-color: #30CCB3;
-            color: #ffe;
+        }
+
+        img {
+            width: 100%;
         }
     </style>
 </head>

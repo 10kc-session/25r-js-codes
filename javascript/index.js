@@ -1,33 +1,68 @@
-let arr = [
-    { id: 217, name: 'Name 398', email: 'email398@example.com', age: 34, address: 'Street 53' },
-    { id: 445, name: 'Name 234', email: 'email234@example.com', age: 27, address: 'Street 45' },
-    { id: 563, name: 'Name 56', email: 'email56@example.com', age: 43, address: 'Street 8' },
-    { id: 872, name: 'Name 892', email: 'email892@example.com', age: 52, address: 'Street 41' },
-    { id: 992, name: 'Name 610', email: 'email610@example.com', age: 35, address: 'Street 19' },
-    { id: 139, name: 'Name 924', email: 'email924@example.com', age: 48, address: 'Street 91' },
-    { id: 217, name: 'Name 398', email: 'email398@example.com', age: 34, address: 'Street 53' },
-    { id: 445, name: 'Name 234', email: 'email234@example.com', age: 27, address: 'Street 45' },
-    { id: 563, name: 'Name 56', email: 'email56@example.com', age: 43, address: 'Street 8' },
-    { id: 872, name: 'Name 892', email: 'email892@example.com', age: 52, address: 'Street 41' },
-    { id: 992, name: 'Name 610', email: 'email610@example.com', age: 35, address: 'Street 19' },
-    { id: 139, name: 'Name 924', email: 'email924@example.com', age: 48, address: 'Street 91' },
-    { id: 563, name: 'Name 56', email: 'email56@example.com', age: 43, address: 'Street 8' },
-    { id: 872, name: 'Name 892', email: 'email892@example.com', age: 52, address: 'Street 41' },
-    { id: 992, name: 'Name 610', email: 'email610@example.com', age: 35, address: 'Street 19' },
-    { id: 139, name: 'Name 924', email: 'email924@example.com', age: 48, address: 'Street 91' }
-]
-
-let div = document.createElement("div");
-div.className = "grid-container";
-arr.forEach(obj => {
-    let item = document.createElement("div");
-    item.className = "item";
-    for (let key in obj) {
-        let p = document.createElement("p");
-        p.innerText = `${key} : ${obj[key]}`;
-        item.appendChild(p);
+async function getData() {
+    try {
+        let response = await fetch("http://localhost:5000/products", { method: "GET" });
+        if (!response.ok) {
+            throw new Error("Data Not Found");
+        }
+        let data = await response.json();
+        printData(data);
+    } catch (error) {
+        alert("Data failed to fetch");
     }
-    div.appendChild(item);
-})
+}
 
-document.body.appendChild(div);
+function printData(data) {
+    // creating a table tag
+    let table = document.createElement("table");
+
+    // Heading
+
+    // creating a thead tag to store heading
+    let thead = document.createElement("thead");
+
+    // creating a heading row to append to thead
+    let trhead = document.createElement("tr");
+
+    // reducing boiler plate with array and forEach 
+    let headings = ["id", "title", "price", "description", "category", "image"];
+    headings.forEach(ele => {
+        let th = document.createElement("th");
+        th.innerText = ele;
+        trhead.appendChild(th);
+    });
+    // Appending trhead to thead tag to display headings    
+    thead.appendChild(trhead);
+
+    // Body
+    // creating tbody tag to store the data
+    let tbody = document.createElement("tbody");
+
+    // iterating over data came for api using forEach 
+    data.forEach(obj => {
+        let tr = document.createElement("tr");
+        for (let key in obj) {
+            // Skipping Rating Object from the Real Object
+            if (key !== "rating") {
+                let td = document.createElement("td");
+                if (key === "image") {
+                    let img = document.createElement("img");
+                    img.src = obj[key];
+                    td.appendChild(img);
+                } else {
+                    td.innerText = obj[key];
+                }
+                // appending td to tr
+                tr.appendChild(td);
+            }
+        }
+        // appending tr to tbody , which is having data 
+        tbody.appendChild(tr);
+    })
+
+    // appending thead and tbody to table tag 
+    table.append(thead, tbody);
+
+    // appending table to body tag to display data
+    document.body.appendChild(table);
+}
+getData();
