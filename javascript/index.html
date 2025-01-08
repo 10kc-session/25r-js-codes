@@ -4,36 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
-    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <title>Document</title>
     <style>
-        /* HTML: <div class="loader"></div> */
-        .loader {
-            width: 60px;
-            aspect-ratio: 4;
-            background: radial-gradient(circle closest-side, #000 90%, #0000) 0/calc(100%/3) 100% space;
-            clip-path: inset(0 100% 0 0);
-            animation: l1 1s steps(4) infinite;
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        @keyframes l1 {
-            to {
-                clip-path: inset(0 -34% 0 0)
-            }
+        .container>div>img {
+            width: 100px;
+        }
+
+        .container>div {
+            display: flex;
+            justify-content: space-between;
+            border: 2px solid;
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
         }
     </style>
 </head>
 
 <body>
-    <div class="weather-container">
-        <h1 class="weather-title">Weather App</h1>
-        <div class="input-group">
-            <input type="text" name="city" required pattern="[a-z]+" id="cityName" placeholder="Enter city name">
-        </div>
-        <button onclick="getWeather()">Get Weather</button>
-        <div class="loader" id="loader"></div>
-        <div id="showWeather"></div>
-    </div>
+    <button id="btn">Get Data</button>
+    <div class="container"></div>
     <script src="./index.js"></script>
 </body>
 
