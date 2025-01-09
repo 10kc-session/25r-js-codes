@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grid-container>div {
+            display: grid;
+            font-size: 1.5rem;
+            padding: 10px;
+            border: 1px solid #ccc;
+            place-items: center;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        #grid-container {
+            margin-top: 20px;
+            display: grid;
+            gap: 10px;
+        }
+
+        button {
+            font-size: 1.3rem;
+            padding: 6px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 10px;
+        }
+
+        input::placeholder {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="hidden" id="id">
+        <input type="text" placeholder="name" id="name"> <br>
+        <input type="text" placeholder="image url" id="image"><br>
+        <button onclick="saveData()">Save Data</button>
+    </div>
+    <div id="grid-container"></div>
+    <script src="./admin.js"></script>
+</body>
+
+</html>
