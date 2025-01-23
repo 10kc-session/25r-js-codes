@@ -1,23 +1,66 @@
-function saveData() {
-    let input = document.querySelector("input");
-    let arr = JSON.parse(localStorage.getItem("name")) || [];
-    arr.push(input.value);
-    localStorage.setItem("name", JSON.stringify(arr));
-    input.value = ''
-    displayData();
+async function fetchData() {
+    let response = await fetch("https://fakestoreapi.com/products");
+    let products = await response.json();
+    localStorage.setItem("products", JSON.stringify(products));
 }
-function displayData() {
-    let container = document.getElementsByClassName("container")[0];
+
+function displayCategories() {
+    let products = JSON.parse(localStorage.getItem("products"));
+    let category = products.map(product => product.category);
+    let set = new Set(category);
+    let categoryArr = Array.from(set);
+    let btnContainer = document.getElementById("btn-container");
+    categoryArr.forEach(category => {
+        let button = document.createElement("button");
+        button.textContent = category;
+        button.onclick = () => {
+            filterData(category);
+        }
+        btnContainer.appendChild(button);
+    })
+}
+
+function filterData(category) {
+    // let cat = window.prompt("Enter the category");
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+    let filteredData = products.filter(product => product.category === category);
+    displayData(filteredData);
+}
+
+function displayData(products) {
+    let container = document.getElementById("container");
     container.innerHTML = ``;
-    let arr = JSON.parse(localStorage.getItem("name"));
-    if (arr === null) {
-        container.innerHTML = "no data available";
+    if (products.length === 0) {
+        container.innerHTML = "No Data Avaialable";
     } else {
-        arr.forEach(name => {
-            let p = document.createElement("p");
-            p.innerText = name;
-            container.appendChild(p);
-        })
+        products.forEach((product, index) => {
+            let item = document.createElement("div");
+            item.innerHTML = `
+                <img src = ${product.image}>
+                <h3>Title : ${product.title}</h3>
+                <p>Description : ${product.description} </p>
+                <p>Price : ${product.price}</p>
+                <p><b>Catergory</b> : ${product.category}</p>
+                <button onclick = deleteData(${index})>Delete</button>
+            `
+            container.appendChild(item);
+        });
     }
 }
-window.onload = displayData;
+
+function deleteData(index) {
+    let products = JSON.parse(localStorage.getItem("products"));
+    products.splice(index, 1);
+    localStorage.setItem("products", JSON.stringify(products));
+    displayData(products);
+}
+
+window.onload = () => {
+    let products = JSON.parse(localStorage.getItem("products")) || []
+    if (products.length === 0) {
+        fetchData();
+    } else {
+        displayData(products);
+        displayCategories();
+    }
+};

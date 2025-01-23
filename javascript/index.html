@@ -5,12 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        .container>div {
+            border: 2px solid #eee;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .container>div>img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+    </style>
 </head>
 
 <body>
-    <input type="text" placeholder="enter your name">
-    <button onclick="saveData()">Save</button>
-    <div class="container"></div>
+    <h1>Products</h1>
+    <!-- <button onclick="filterData()">Filter</button> -->
+    <div class="btn-container" id="btn-container"></div>
+    <div class="container" id="container"></div>
     <script src="./index.js"></script>
 </body>
 
