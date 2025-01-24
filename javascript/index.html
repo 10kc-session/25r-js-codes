@@ -6,29 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h1 {
-            text-align: center;
-        }
-
-        .container>div {
-            border: 2px solid #eee;
+        input {
             padding: 10px;
-            margin-bottom: 10px;
+            outline: none;
+            display: block;
+            margin: 6px;
         }
 
-        .container>div>img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
+        .error {
+            border-color: red;
+        }
+
+        input::placeholder {
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <h1>Products</h1>
-    <!-- <button onclick="filterData()">Filter</button> -->
-    <div class="btn-container" id="btn-container"></div>
-    <div class="container" id="container"></div>
+    <form id="form" action="./user.html">
+        <input type="text" id="name" placeholder="enter name">
+        <span id="nameError"></span>
+        <input type="text" id="pass" placeholder="enter password">
+        <span id="passError"></span>
+        <input type="submit">
+    </form>
     <script src="./index.js"></script>
 </body>
 

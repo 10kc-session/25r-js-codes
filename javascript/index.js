@@ -1,66 +1,23 @@
-async function fetchData() {
-    let response = await fetch("https://fakestoreapi.com/products");
-    let products = await response.json();
-    localStorage.setItem("products", JSON.stringify(products));
-}
-
-function displayCategories() {
-    let products = JSON.parse(localStorage.getItem("products"));
-    let category = products.map(product => product.category);
-    let set = new Set(category);
-    let categoryArr = Array.from(set);
-    let btnContainer = document.getElementById("btn-container");
-    categoryArr.forEach(category => {
-        let button = document.createElement("button");
-        button.textContent = category;
-        button.onclick = () => {
-            filterData(category);
-        }
-        btnContainer.appendChild(button);
-    })
-}
-
-function filterData(category) {
-    // let cat = window.prompt("Enter the category");
-    let products = JSON.parse(localStorage.getItem("products")) || [];
-    let filteredData = products.filter(product => product.category === category);
-    displayData(filteredData);
-}
-
-function displayData(products) {
-    let container = document.getElementById("container");
-    container.innerHTML = ``;
-    if (products.length === 0) {
-        container.innerHTML = "No Data Avaialable";
+let input1 = document.getElementById("name");
+let input2 = document.getElementById("pass");
+let nameError = document.getElementById("nameError");
+let passError = document.getElementById("passError");
+document.getElementById("form").addEventListener("submit", (event) => {
+    if (input1.value === '' || !(/^(?=.*[a-z]).{3,}$/.test(input1.value))) {
+        input1.classList.add("error");
+        nameError.innerHTML = "<i style = 'color : red'>username required</i>";
+        event.preventDefault();
     } else {
-        products.forEach((product, index) => {
-            let item = document.createElement("div");
-            item.innerHTML = `
-                <img src = ${product.image}>
-                <h3>Title : ${product.title}</h3>
-                <p>Description : ${product.description} </p>
-                <p>Price : ${product.price}</p>
-                <p><b>Catergory</b> : ${product.category}</p>
-                <button onclick = deleteData(${index})>Delete</button>
-            `
-            container.appendChild(item);
-        });
+        nameError.innerHTML = ``
+        input1.classList.remove("error");
     }
-}
-
-function deleteData(index) {
-    let products = JSON.parse(localStorage.getItem("products"));
-    products.splice(index, 1);
-    localStorage.setItem("products", JSON.stringify(products));
-    displayData(products);
-}
-
-window.onload = () => {
-    let products = JSON.parse(localStorage.getItem("products")) || []
-    if (products.length === 0) {
-        fetchData();
-    } else {
-        displayData(products);
-        displayCategories();
+    if (input2.value === '' || !(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,}$/.test(input2.value))) {
+        input2.classList.add("error");
+        passError.innerHTML = "<i style = 'color : red'>password required</i>"
+        event.preventDefault();
     }
-};
+    else {
+        passError.innerHTML = ``;
+        input2.classList.remove("error");
+    }
+})
